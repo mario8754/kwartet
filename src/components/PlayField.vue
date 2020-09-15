@@ -1,6 +1,5 @@
 <template>
   <div class="playfield">
-    <new Date().toLocaleString() />
     <Deck :amount="deck.amount" @draw="draw" />
     <Hand :cards="player.cards" v-if="deck.amount > 50" />
   </div>
