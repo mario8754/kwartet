@@ -1,0 +1,47 @@
+De opdracht voor iteratie 1 is om individueel de frontend van een kwartetspel te maken.
+
+# npm run serve
+
+
+De speler ziet
+[] een dichte stapel kaarten waar hij de bovenste kaart vanaf kan pakken
+[] een aflegstapel waarop hij kaarten kan wegleggen
+[] de kaarten die hij in zijn hand heeft
+    [] deze moet hij zelf kunnen sorteren
+[] de rijtjes met kaarten die hij op tafel heeft gelegd
+[] De kaarten hebben een thema gewoon nummeren (vogel 1 t/m vogel 4)
+  NICE TO HAVE: (bv. vogel) en van elk thema zijn er vier kaarten (bv. merel, duif, ekster, roodborstje). 
+ 
+[] Bij aanvang van het spel wordt stapel met kaarten geschud.
+[] De speler krijgt een aantal speelkaarten die hij in de hand neemt.
+[] De rest van de kaarten vormt de dichte stapel.
+ 
+[] Het is de bedoeling dat de speler kwartetten vormt en die op tafel legt.
+    [] Hij kan dit doen door de kaarten in zijn hand te sorteren.
+    [] De applicatie moet controleren of de speler zich aan de regels houdt
+        - CHECK: Of het een echte kwartet is
+    [] Heeft hij vier kaarten van hetzelfde thema
+      TRUE = dan mag hij die op tafel leggen. 
+      FALSE = de speler de kaarten weer terug in zijn hand.
+ 
+[] Bij elke spelronde
+  1. pakt de speler een kaart van de dichte stapel
+  2. sorteert hij de kaarten in zijn hand
+  3. legt hij de kwartetten die hij heeft op tafel 
+  4. legt hij een kaart weg.
+  DONE IF:
+    - Het spel is klaar als de speler geen kaarten meer in zijn hand heeft (gewonnen) 
+    - als er na een spelronde geen nieuwe kaarten meer op de dichte stapel liggen (verloren).
+ 
+Tip:
+ 
+Als het kwartetspel in eerste instantie te ingewikkeld is, begin dan met een vereenvoudigde versie.
+Bij deze versie heb je 10 kaarten met opeenvolgende nummers. Er is geen aflegstapel.
+De speler krijgt 4 kaarten. Heeft hij de kaart met het laagste nummer, dan mag hij die op tafel leggen. Heeft hij ook het daarop volgende nummer, dan mag hij ook die kaart op tafel leggen.
+Kan de speler geen kaart meer op tafel leggen, dan pakt hij een kaart van de stapel.
+Bij het afsluiten van de applicatie hoeft de spelsituatie niet te worden onthouden. De volgende niet-functionele eisen zijn ook van belang bij het maken van de webapplicatie:
+
+De applicatie is responsive .
+Het is een Single Page Application (SPA).
+De app moet worden gemaakt met een zelf te kiezen JavaScript front-end framework
+
