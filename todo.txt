@@ -2,6 +2,51 @@ De opdracht voor iteratie 1 is om individueel de frontend van een kwartetspel te
 
 # npm run serve
 
+// BEdoel je met draggen echt drag and drop?
+Dus dan hoe je niet een drag drop,
+maar meer een draw card en dan check for kwartet toch?
+
+Drag en drop zelf is niet de meest simpele concept.
+
+Okay uhmm, Waar je dan mee begint qua stappen zijn dan
+1. Trigger een drag
+2. registreer welke item wordt gedraged
+3. Controleer of die gedropt wordt.
+4. Check of je drop een valide drop is
+  4.1 Check op kwartet
+  4.2 check of het een kaartje trekken is
+5. Voeg de item die je hebt geregistreerd in de juiste array waar je hem hebt gedropt.(Mist die goed is gevalideerd)
+6. Hopen op geen bugs
+
+Dat is het ongeveer maar is denk ik iets lastiger gedaan dan gezegt.
+
+// Een Kaarten spel bestaat uit 4 verschillende soorten kaarten
+// Per kaart hebben ze hun eigen waarden van A tot K
+// Je unieke waarde zou dus een combinatie moeten worden van de soort en de waarde
+// Hiermee kan je uit de unieke waarde nog wel lezen om welke kaart het gaat.
+
+// Wat je dus moet doen is een multidimensionale array maken met daar in 
+  de x as als soort kaart
+  de y as als waarde van de kaart
+
+je krijgt dan ongv dit
+vogel1 : [A2345678910BQK]
+vogel2 : [A2345678910BQK]
+vogel3 : [A2345678910BQK]
+vogel4 : [A2345678910BQK]
+
+// Daarna wil je deze vier dingen combineren in 1 deck. dan krijg je;
+[A2345678910BQK - A2345678910BQK - A2345678910BQK - A2345678910BQK] // Met ieder zijn unieke waarde zodat je weet
+welke kaart wele is.
+
+volg je me nog? Ja zeker, moet ik de code dan in deck verwerken en in playfield aanroepen?
+Ja want de deck is een onderdeel van het speelveld.
+
+Dit meot zeker voor morgen? Aah okay ik wilde al net zeggen. Dat wordt wel redelijk krap anders.
+Zeg maar als je er niet helemaal op uit komt vrijdag. Tis niet moeilijk maar als je het net niet ziet weet je niet waar je moet beginnen.
+ Risico's als docent. Maar dat maakt hun menselijk :P Isgoed fijne nachtmerries.
+ uhm ja ik ben er tot vrijdag middag, omdat donderdag les is en me ma woont er 15 min vandaan tzelfde!
+
 
 De speler ziet
 [] een dichte stapel kaarten waar hij de bovenste kaart vanaf kan pakken
