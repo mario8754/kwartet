@@ -19,10 +19,6 @@ export default {
     return {
       deck: {
         amount: 12,
-        // Ik ben nog bij me ma en lucca slaapt dus ik kan niet echt praten
-        // Ik hoor je wel
-        // Dat klopt wel over het algmeen css is meestal een bijproduct
-
         cards: [
           {
             type: "Vogel 1",
