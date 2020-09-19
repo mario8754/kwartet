@@ -44,14 +44,14 @@ export default {
 <style scoped>
 .hand {
   border: 1px solid black;
-  height: 250px;
-  width: 1100px;
+  height: 40%;
+  width: 100%;
   display: flex;
 }
 
 .card {
   border: 1px solid black;
-  height: 250px;
-  width: 175px;
+  height: 200px;
+  width: 25%;
 }
 </style>
