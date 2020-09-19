@@ -1,7 +1,12 @@
 <template>
   <div class="playfield">
-    <Deck :amount="deck.amount" @draw="draw" />
-    <Hand :cards="player.cards" v-if="deck.amount > 12" />
+    <button @click="reset">reset</button>
+    <button @click="checkKwartet">kwartet</button>
+    <div class="flex">
+      <Deck :amount="deck.cards.length" />
+      <Trash @trashed="trashedCardOutOfHand" />
+    </div>
+    <Hand :cards="player.cards" @draw="drawTopCardInDeck" />
   </div>
 </template>
 
@@ -9,46 +14,22 @@
 // Hier logica over het spel in het algemeen
 import Deck from "./Deck.vue";
 import Hand from "./Hand.vue";
+import Trash from "./Trash.vue";
+
 export default {
   name: "Playfield",
   components: {
     Deck,
     Hand,
+    Trash,
   },
   data() {
     return {
       deck: {
-        amount: 12,
-        cards: [
-          {
-            type: "Vogel 1",
-            value: "A",
-          },
-          {
-            type: "Vogel 1",
-            value: "K",
-          },
-        ],
+        cards: [],
       },
       player: {
-        cards: [
-          {
-            type: "Vogel 1",
-            value: "A",
-          },
-          {
-            type: "Vogel 1",
-            value: "K",
-          },
-          {
-            type: "Vogel 2",
-            value: "K",
-          },
-          {
-            type: "Vogel 2",
-            value: "K",
-          },
-        ],
+        cards: [],
       },
     };
   },
@@ -59,32 +40,82 @@ export default {
   },
   methods: {
     startGame() {
+      // window.alert("creating cards");
       // Hier zou je je logica van het opstellen van een deck maken.
       // Ja precies dus de volgorde in deze code zou een beetje zijn
       this.generateDeck();
       this.shuffleDeck();
-      this.draw();
-      this.draw();
-      this.draw();
-      this.draw();
+      this.drawTopCardInDeck();
+      this.drawTopCardInDeck();
+      this.drawTopCardInDeck();
+      this.drawTopCardInDeck();
 
       // zoiets.
     },
     generateDeck() {
+      const types = ["Vogel-1", "Vogel-2", "Vogel-3", "Vogel-4"];
+      const values = ["A", "B", "C", "D"];
+      // Loop door alle types
+      const deck = types.map((type) => {
+        // Loop door alle values
+        const row = values.map((value) => {
+          return {
+            type: type,
+            value: value,
+          };
+        });
+        return row;
+      });
+      this.deck.cards = deck.flat();
       // Hier logica om een matrix op te stellen en die dan samen te voegen in 1 array om een deck te krijgen.
     },
     shuffleDeck() {
       // Hier om de deck te random sorteren.
+      window.alert("Shuffling DecK");
+
+      this.deck.cards.sort(() => Math.random() - 0.5);
     },
-    draw(amount) {
-      this.deck.amount = amount;
-      this.player.cards.push({
-        type: "Vogel 1",
-        value: "7",
-      });
+    drawTopCardInDeck() {
+      if (this.deck.cards.length === 0) {
+        window.alert("NO CARDS");
+        return;
+      }
+
+      if (this.player.cards.length === 4) {
+        window.alert("Maximaal maar 4 kaarten in hand");
+        return;
+      }
+      // Sla bovenste kaart op uit de deck
+      const topCard = this.deck.cards[0];
+      // Haal bovenste kaart uit deck
+      this.deck.cards.shift();
+      // Zet de opgeslagen kaart in mijn hand
+      this.drawCard(topCard);
+    },
+    drawCard(card) {
+      this.player.cards = this.player.cards.concat(card);
     },
     reset() {
-      this.deck.amount = 12;
+      this.deck.cards = [];
+      this.player.cards = [];
+      this.startGame();
+    },
+    checkKwartet() {
+      const valueToCheck = this.player.cards[0].value;
+      const hasKwartet = this.player.cards.every(
+        (card) => card.value === valueToCheck
+      );
+      if (hasKwartet) {
+        window.alert("KWARTER!");
+      } else {
+        window.alert("LOSER!");
+      }
+    },
+    trashedCardOutOfHand(trashedCard) {
+      this.player.cards = this.player.cards.filter(
+        (card) =>
+          !(card.type === trashedCard.type && card.value === trashedCard.value)
+      );
     },
   },
 };
@@ -93,8 +124,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .playfield {
-  border: 1px solid black;
-  height: 550px;
-  width: 1100px;
+  height: 95vh;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

@@ -1,6 +1,13 @@
 <template>
-  <div class="hand">
-    <div class="card" v-for="(card, i) in cards" :key="i">{{card.type}} - {{card.value}}</div>
+  <div class="hand" @drop="handleDrop" @dragover.prevent @dragenter.prevent>
+    <div
+      v-for="(card, i) of cards"
+      :key="i"
+      class="card"
+      id="card"
+      draggable="true"
+      @dragstart="event => registerDrag(event, card)"
+    >{{card.type}} - {{card.value}}</div>
   </div>
 </template>
 
@@ -10,6 +17,25 @@ export default {
     cards: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    registerDrag(event, card) {
+      console.log(card);
+      event.dataTransfer.setData("drag", event.target.id);
+      event.dataTransfer.setData("data", JSON.stringify(card));
+    },
+    handleDrop(event) {
+      event.preventDefault();
+      // Hiermee wordt nu gechecked welke drag type ik gebruik.
+      if (event.dataTransfer.getData("drag") === "deck") {
+        console.log("Drawing card");
+        // Als drag type gelijk staat aan deck dan voeren we de drag methode uit.
+        this.draw();
+      }
+    },
+    draw() {
+      this.$emit("draw");
     },
   },
 };
