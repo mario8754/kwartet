@@ -72,9 +72,7 @@ export default {
   background-color: blue;
   display: inline-block;
 }
-.card > span {
-  pointer-events: none;
-}
+
 .img {
   height: 150px;
   width: auto;
