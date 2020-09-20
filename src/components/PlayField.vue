@@ -105,7 +105,7 @@ export default {
     //instructie voor het spel
     instructie() {
       window.alert(
-        "Het is de bedoeling dat je vogels 4 van de zelfde vogels in je handen hebt. Je mag 1 keer wegslepen om een andere te pakken"
+        "Het is de bedoeling dat je vogels 4 van de zelfde vogels in je handen hebt. Je mag 1 keer wegslepen om een andere te pakken. A:s je 4 van dezelfde kaarten hebt, kun je op kwartet klikken. Bij kwartet kun je een nieuw spel starten door op reset te klikken."
       );
     },
     //Check of de speler kwartet heeft
