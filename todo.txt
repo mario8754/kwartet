@@ -89,3 +89,8 @@ De applicatie is responsive .
 Het is een Single Page Application (SPA).
 De app moet worden gemaakt met een zelf te kiezen JavaScript front-end framework.
 
+Check:
+
+- 4 kaarten in hand voor Kwartet.
+- Check als geen kwartet en 0 kaarten optie opnieuw beginnen
+

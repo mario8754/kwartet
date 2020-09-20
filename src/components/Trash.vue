@@ -29,7 +29,7 @@ export default {
         this.handleTrash();
       }
 
-      // Met deze id weet je nu evt welke actie je moet gaan uitvoeren.
+      // Met deze id weet ik evt welke actie ik moet gaan uitvoeren.
     },
     handleTrash() {
       this.$emit("trashed", this.card);

@@ -15,7 +15,7 @@
     </draggable>
   </div>
 </template>
-
+//invoegen van de draggable 
 <script>
 import draggable from "vuedraggable";
 export default {
@@ -28,6 +28,7 @@ export default {
       required: true,
     },
   },
+  //register van de draw
   methods: {
     registerDrag(event, card) {
       console.log(card);

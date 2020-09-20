@@ -12,7 +12,7 @@
 </template>
 
 <script>
-// Hier logica over het spel in het algemeen
+// Hier logica over het spel in het algemeen. Hier worden de klasse geimporteerd.
 import Deck from "./Deck.vue";
 import Hand from "./Hand.vue";
 import Trash from "./Trash.vue";
@@ -36,7 +36,7 @@ export default {
   },
   // Mounted wordt aangeroepen wanneer de component zichtbaar is voor de gebruiker.
   mounted() {
-    // Wanneer de pagina beschikbaar is wil je de deck aanmaken.
+    // Wanneer de pagina beschikbaar is wordt de deck aangemaakt.
     this.startGame();
   },
   methods: {
@@ -98,25 +98,30 @@ export default {
     drawCard(card) {
       this.player.cards = this.player.cards.concat(card);
     },
+    //reloaden van het spel bij een reset
     reset() {
       window.location.reload();
     },
+    //instructie voor het spel
     instructie() {
       window.alert(
         "Het is de bedoeling dat je vogels 4 van de zelfde vogels in je handen hebt. Je mag 1 keer wegslepen om een andere te pakken"
       );
     },
+    //Check of de speler kwartet heeft
     checkKwartet() {
       const valueToCheck = this.player.cards[0].value;
       const hasKwartet = this.player.cards.every(
         (card) => card.value === valueToCheck
       );
-      if (hasKwartet) {
+      if (hasKwartet && this.player.cards.length === 4) {
         window.alert("KWARTET!");
+        window.location.reload();
       } else {
         window.alert("Je hebt geen kwartet!");
       }
     },
+    // methode voor het wegleggen van de kaarten en ook check dat de speler niet minder dan 4 kaarten heeft.
     trashedCardOutOfHand(trashedCard) {
       if (this.player.cards.length < 4) {
         window.alert("U moet eerst een kaart pakken");
