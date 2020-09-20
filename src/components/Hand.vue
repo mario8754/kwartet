@@ -1,21 +1,27 @@
 <template>
-  <div class="hand" @drop="handleDrop" @dragover.prevent @dragenter.prevent>
-    <div
-      v-for="(card, i) of cards"
-      :key="i"
-      class="card"
-      id="card"
-      draggable="true"
-      @dragstart="event => registerDrag(event, card)"
-    >
-      <img :src="require(`@/assets/images/${card.value}.png`)" alt="Profile image" class="img" />
-      - {{card.type}}
-    </div>
+  <div class="hand list-group" @drop="handleDrop" @dragover.prevent @dragenter.prevent>
+    <draggable>
+      <div
+        v-for="(card, i) of cards"
+        :key="i"
+        class="card list-group-item"
+        id="card"
+        draggable="true"
+        @dragstart="event => registerDrag(event, card)"
+      >
+        <img :src="require(`@/assets/images/${card.value}.png`)" alt="No image" class="img" />
+        - {{card.type}}
+      </div>
+    </draggable>
   </div>
 </template>
 
 <script>
+import draggable from "vuedraggable";
 export default {
+  components: {
+    draggable,
+  },
   props: {
     cards: {
       type: Array,
@@ -52,15 +58,26 @@ export default {
   display: flex;
 }
 
+.hand > div {
+  width: 100%;
+  word-wrap: unset;
+}
+
 .card {
   border: 1px solid black;
   height: 200px;
-  width: 25%;
+  width: 200px;
   color: red;
   background-color: blue;
+  display: inline-block;
+}
+.card > span {
+  pointer-events: none;
 }
 .img {
   height: 150px;
   width: auto;
+  display: flex;
+  pointer-events: none;
 }
 </style>
