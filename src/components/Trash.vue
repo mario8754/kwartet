@@ -45,6 +45,7 @@ export default {
   width: 150px;
   background: red;
   opacity: 70%;
+  margin-right: 2rem;
 }
 .img {
   height: 150px;

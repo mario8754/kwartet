@@ -26,5 +26,6 @@ export default {
   background: green;
   opacity: 70%;
   margin-bottom: 2rem;
+  margin-left: 2rem;
 }
 </style>
