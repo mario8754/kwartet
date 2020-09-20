@@ -87,5 +87,5 @@ Bij het afsluiten van de applicatie hoeft de spelsituatie niet te worden onthoud
 
 De applicatie is responsive .
 Het is een Single Page Application (SPA).
-De app moet worden gemaakt met een zelf te kiezen JavaScript front-end framework
+De app moet worden gemaakt met een zelf te kiezen JavaScript front-end framework.
 
