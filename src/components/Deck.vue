@@ -23,5 +23,8 @@ export default {
   border: 1px solid black;
   height: 250px;
   width: 150px;
+  background: green;
+  opacity: 70%;
+  margin-bottom: 2rem;
 }
 </style>

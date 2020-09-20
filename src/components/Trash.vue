@@ -1,7 +1,10 @@
 <template>
   <!-- <div>
   <div class="kwartet" @drop="handleDrop" @dragover.prevent @dragenter.prevent></div>-->
-  <div class="trash" id="trash" @drop="handleDrop" @dragover.prevent @dragenter.prevent>{{card}}</div>
+  <div class="trash" id="trash" @drop="handleDrop" @dragover.prevent @dragenter.prevent>
+    <img :src="require(`@/assets/images/${card.value}.png`)" :alt="card.type" class="img" />
+    - {{card.type}}
+  </div>
 </template>
 
 <script>
@@ -10,7 +13,10 @@
 export default {
   data() {
     return {
-      card: {},
+      card: {
+        type: "Er is nog geen kaart getrashed",
+        value: "trash",
+      },
     };
   },
   methods: {
@@ -37,5 +43,11 @@ export default {
   border: 1px solid black;
   height: 250px;
   width: 150px;
+  background: red;
+  opacity: 70%;
+}
+.img {
+  height: 150px;
+  width: auto;
 }
 </style>

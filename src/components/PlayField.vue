@@ -52,9 +52,11 @@ export default {
 
       // zoiets.
     },
+    // Hier logica om een matrix op te stellen en die dan samen te voegen in 1 array om een deck te krijgen.
     generateDeck() {
       const types = ["Vogel-1", "Vogel-2", "Vogel-3", "Vogel-4"];
       const values = ["A", "B", "C", "D"];
+
       // Loop door alle types
       const deck = types.map((type) => {
         // Loop door alle values
@@ -66,8 +68,8 @@ export default {
         });
         return row;
       });
+      //Voegt Array samen
       this.deck.cards = deck.flat();
-      // Hier logica om een matrix op te stellen en die dan samen te voegen in 1 array om een deck te krijgen.
     },
     shuffleDeck() {
       // Hier om de deck te random sorteren.
@@ -96,9 +98,7 @@ export default {
       this.player.cards = this.player.cards.concat(card);
     },
     reset() {
-      this.deck.cards = [];
-      this.player.cards = [];
-      this.startGame();
+      window.location.reload();
     },
     checkKwartet() {
       const valueToCheck = this.player.cards[0].value;
@@ -106,9 +106,9 @@ export default {
         (card) => card.value === valueToCheck
       );
       if (hasKwartet) {
-        window.alert("KWARTER!");
+        window.alert("KWARTET!");
       } else {
-        window.alert("LOSER!");
+        window.alert("JE hebt geen kwartet!");
       }
     },
     trashedCardOutOfHand(trashedCard) {

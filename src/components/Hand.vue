@@ -7,7 +7,10 @@
       id="card"
       draggable="true"
       @dragstart="event => registerDrag(event, card)"
-    >{{card.type}} - {{card.value}}</div>
+    >
+      <img :src="require(`@/assets/images/${card.value}.png`)" alt="Profile image" class="img" />
+      - {{card.type}}
+    </div>
   </div>
 </template>
 
@@ -53,5 +56,11 @@ export default {
   border: 1px solid black;
   height: 200px;
   width: 25%;
+  color: red;
+  background-color: blue;
+}
+.img {
+  height: 150px;
+  width: auto;
 }
 </style>
