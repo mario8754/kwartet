@@ -2,6 +2,7 @@
   <div class="playfield">
     <button @click="reset">reset</button>
     <button @click="checkKwartet">kwartet</button>
+    <button @click="instructie">instructie</button>
     <div class="flex">
       <Deck :amount="deck.cards.length" />
       <Trash @trashed="trashedCardOutOfHand" />
@@ -100,6 +101,11 @@ export default {
     reset() {
       window.location.reload();
     },
+    instructie() {
+      window.alert(
+        "Het is de bedoeling dat je vogels 4 van de zelfde vogels in je handen hebt. Je mag 1 keer wegslepen om een andere te pakken"
+      );
+    },
     checkKwartet() {
       const valueToCheck = this.player.cards[0].value;
       const hasKwartet = this.player.cards.every(
@@ -108,10 +114,14 @@ export default {
       if (hasKwartet) {
         window.alert("KWARTET!");
       } else {
-        window.alert("JE hebt geen kwartet!");
+        window.alert("Je hebt geen kwartet!");
       }
     },
     trashedCardOutOfHand(trashedCard) {
+      if (this.player.cards.length < 4) {
+        window.alert("U moet eerst een kaart pakken");
+        return;
+      }
       this.player.cards = this.player.cards.filter(
         (card) =>
           !(card.type === trashedCard.type && card.value === trashedCard.value)
@@ -131,5 +141,8 @@ export default {
 .flex {
   display: flex;
   justify-content: space-between;
+}
+.button {
+  margin: 1px;
 }
 </style>
