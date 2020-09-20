@@ -80,7 +80,7 @@ export default {
     },
     drawTopCardInDeck() {
       if (this.deck.cards.length === 0) {
-        window.alert("NO CARDS");
+        window.alert("NO CARDS je kan de Game resetten");
         return;
       }
 
