@@ -18,7 +18,6 @@ Okay uhmm, Waar je dan mee begint qua stappen zijn dan
 5. Voeg de item die je hebt geregistreerd in de juiste array waar je hem hebt gedropt.(Mist die goed is gevalideerd)
 6. Hopen op geen bugs
 
-Dat is het ongeveer maar is denk ik iets lastiger gedaan dan gezegt.
 
 // Een Kaarten spel bestaat uit 4 verschillende soorten kaarten
 // Per kaart hebben ze hun eigen waarden van A tot K
