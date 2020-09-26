@@ -16,7 +16,7 @@
 import Deck from "./Deck.vue";
 import Hand from "./Hand.vue";
 import Trash from "./Trash.vue";
-
+//toevoegen components aan playfield
 export default {
   name: "Playfield",
   components: {
@@ -42,16 +42,13 @@ export default {
   methods: {
     startGame() {
       // window.alert("creating cards");
-      // Hier zou je je logica van het opstellen van een deck maken.
-      // Ja precies dus de volgorde in deze code zou een beetje zijn
+      // Logiva deck maken
       this.generateDeck();
       this.shuffleDeck();
       this.drawTopCardInDeck();
       this.drawTopCardInDeck();
       this.drawTopCardInDeck();
       this.drawTopCardInDeck();
-
-      // zoiets.
     },
     // Hier logica om een matrix op te stellen en die dan samen te voegen in 1 array om een deck te krijgen.
     generateDeck() {
@@ -105,7 +102,7 @@ export default {
     //instructie voor het spel
     instructie() {
       window.alert(
-        "Het is de bedoeling dat je vogels 4 van de zelfde vogels in je handen hebt. Je mag 1 keer wegslepen om een andere te pakken. A:s je 4 van dezelfde kaarten hebt, kun je op kwartet klikken. Bij kwartet kun je een nieuw spel starten door op reset te klikken."
+        "Het is de bedoeling dat je 4 van de zelfde vogels in je handen hebt. Je moet eerst 1 kaart wegslepen om een andere te pakken. Als je 4 van dezelfde (vogels)kaarten hebt, kun je op kwartet klikken. Bij kwartet wordt automatisch een nieuw spel gestart. Je kunt het spel ook resetten als je zeker weet dat je niet gaat redden ;)"
       );
     },
     //Check of de speler kwartet heeft
@@ -121,7 +118,7 @@ export default {
         window.alert("Je hebt geen kwartet!");
       }
     },
-    // methode voor het wegleggen van de kaarten en ook check dat de speler niet minder dan 4 kaarten heeft.
+    // methode voor het wegleggen van de kaarten en ook checkt dat de speler niet minder dan 4 kaarten heeft.
     trashedCardOutOfHand(trashedCard) {
       if (this.player.cards.length < 4) {
         window.alert("U moet eerst een kaart pakken");
@@ -136,7 +133,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- Add "scoped" attribute betekent dat de CSS alleen voor deze klass geldt -->
 <style scoped>
 .playfield {
   height: 95vh;

@@ -1,6 +1,4 @@
 <template>
-  <!-- <div>
-  <div class="kwartet" @drop="handleDrop" @dragover.prevent @dragenter.prevent></div>-->
   <div class="trash" id="trash" @drop="handleDrop" @dragover.prevent @dragenter.prevent>
     <img :src="require(`@/assets/images/${card.value}.png`)" :alt="card.type" class="img" />
     - {{card.type}}
